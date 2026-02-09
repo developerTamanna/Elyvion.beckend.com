@@ -15,11 +15,13 @@ import tasklistRoutes from "./tasklists.js";
 import customerTaskRoutes from "./customerTasks.js";
 import dailyCheckInRoutes from "./dailyCheckIn.js";
 import performTaskRoutes from "./performTask.js";
+import logoutRoutes from "../../auth/logout.mjs";
 import { env } from "../config/env.js";
 
 const router = Router();
 const prefix = env.API_PREFIX;
 
+router.use(logoutRoutes);
 router.use(`${prefix}/health`, healthRoutes);
 router.use(`${prefix}/users`, userRoutes);
 router.use(`${prefix}/customers`, customerRoutes);

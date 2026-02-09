@@ -6,6 +6,24 @@ datasource db {
   provider = "mysql"
 }
 
+model Admin {
+  id             Int      @id @default(autoincrement())
+  name           String?  @db.VarChar(100)
+  password       String?  @db.VarChar(255)
+  role           String   @default("admin") @db.VarChar(50)
+
+  whatsappUrl    String?  @db.VarChar(255)
+  telegramUrl1   String?  @db.VarChar(255)
+  whatsappUrl2   String?  @db.VarChar(255)
+  whatsappUrl3   String?  @db.VarChar(255)
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("admins")
+}
+
+
 
 model Project {
   id              Int     @id @default(autoincrement())
